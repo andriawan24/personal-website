@@ -1,10 +1,13 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Strings } from "@/utils/strings";
 import IconArrowUpRight from "@/components/icons/icon-arrow-up-right";
 import IconEmail from "@/components/icons/icon-email";
-import * as motion from "framer-motion/client";
+import { AnimatePresence, motion } from "framer-motion";
+import TextLoop from "@/components/text-loop";
 
 export default function HeroLanding() {
   return (
@@ -19,13 +22,18 @@ export default function HeroLanding() {
       transition={{ duration: 0.3 }}
       className="flex flex-row items-center gap-10 py-4 md:py-20 px-4 md:px-24 hero-landing"
     >
-      <div>
+      <div className="flex flex-col">
         <h1 className="text-4xl md:text-5xl leading-140 font-bold text-color-text-primary">
           Naufal Fawwaz Andriawan
         </h1>
-        <h3 className="text-md md:text-2xl mt-4 leading-140 font-semibold text-color-text-primary">
-          Mobile Application Engineer
-        </h3>
+        <TextLoop
+          texts={[
+            "Mobile Application Engineer",
+            "F1 Enthusiast",
+            "Football Enthusiast",
+            "Anime Lovers",
+          ]}
+        />
         <p className="text-color-text-secondary leading-140 text-md md:text-xl mt-4">
           I`m a mobile application engineer with more than 3 years of
           experience. My goal is to become a proficient and versatile mobile
